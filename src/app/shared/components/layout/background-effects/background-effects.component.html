@@ -1,0 +1,33 @@
+
+    <!-- Jersey Fabric Base Layer -->
+    <div class="fixed inset-0 z-0 bg-jersey pointer-events-none"></div>
+    <div class="fixed inset-0 z-0 bg-jersey-stitch pointer-events-none"></div>
+
+    <!-- Subtle radial fabric lighting (simulates fabric depth) -->
+    <div
+      class="fixed inset-0 z-0 pointer-events-none"
+      [style.background]="'radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.03) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(255,214,10,0.04) 0%, transparent 50%)'"
+    ></div>
+
+    <!-- Noise Overlay -->
+    <div class="fixed inset-0 z-50 bg-noise mix-blend-overlay pointer-events-none"></div>
+
+    <!-- Field Lines Pattern -->
+    <div class="fixed inset-0 z-0 bg-field-lines pointer-events-none"></div>
+
+    <!-- Stadium Glow Top -->
+    <div class="absolute top-0 left-0 right-0 h-[800px] z-0 stadium-glow pointer-events-none"></div>
+
+    <!-- Center Circle Field Line (Subtle) -->
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border-[2px] border-frederico-yellow/10 z-0 pointer-events-none"></div>
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-full bg-frederico-yellow/10 z-0 pointer-events-none"></div>
+
+    <!-- Goal Posts Simulation -->
+    <!-- Left Goal Area -->
+    <div class="fixed top-1/2 left-0 -translate-y-1/2 w-[180px] h-[400px] border-r-2 border-y-2 border-frederico-yellow/10 z-0 pointer-events-none"></div>
+    <div class="fixed top-1/2 left-0 -translate-y-1/2 w-[60px] h-[200px] border-r-2 border-y-2 border-frederico-yellow/10 z-0 pointer-events-none"></div>
+
+    <!-- Right Goal Area -->
+    <div class="fixed top-1/2 right-0 -translate-y-1/2 w-[180px] h-[400px] border-l-2 border-y-2 border-frederico-yellow/10 z-0 pointer-events-none"></div>
+    <div class="fixed top-1/2 right-0 -translate-y-1/2 w-[60px] h-[200px] border-l-2 border-y-2 border-frederico-yellow/10 z-0 pointer-events-none"></div>
+  
