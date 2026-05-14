@@ -1,0 +1,135 @@
+
+    <section class="py-48 px-4 relative z-10 bg-frederico-black/90 overflow-hidden border-y border-white/5">
+      <!-- Field-line decoration -->
+      <div class="absolute inset-x-0 top-1/2 h-px bg-frederico-yellow/15"></div>
+      <div class="absolute left-1/2 top-0 bottom-0 w-px bg-frederico-yellow/15 hidden md:block"></div>
+
+      <app-section-heading title="Chaveamento" subtitle="O Caminho para a Glória" />
+
+      <div class="max-w-[1700px] mx-auto relative px-4">
+        <!-- Main Tournament Layout -->
+        <div class="flex flex-col md:flex-row items-center justify-center w-full gap-8 lg:gap-12 min-h-[700px]">
+          
+          <!-- LEFT WING (7 Cards) -->
+          <div class="flex items-center gap-6 lg:gap-10 w-full md:w-auto justify-center md:justify-end order-2 md:order-1">
+            <!-- R16 Left -->
+            <div class="flex flex-col gap-6 relative">
+              <div *ngFor="let match of r16.slice(0, 4); let i = index" class="w-32 lg:w-40 bg-frederico-dark/40 border border-white/20 hover:border-frederico-yellow/50 transition-all duration-500 shadow-md relative group">
+                <div class="py-1.5">
+                  <app-team-row [team]="match.team1" [isWinner]="match.winner === 1" [isLoser]="match.winner === 2"></app-team-row>
+                  <app-team-row [team]="match.team2" [isWinner]="match.winner === 2" [isLoser]="match.winner === 1"></app-team-row>
+                </div>
+                <!-- Connector to QF -->
+                <div *ngIf="i % 2 === 0" class="absolute -right-6 lg:-right-10 top-1/2 w-6 lg:w-10 h-[74px] border-t border-r border-white/20 pointer-events-none"></div>
+                <div *ngIf="i % 2 === 1" class="absolute -right-6 lg:-right-10 bottom-1/2 w-6 lg:w-10 h-[74px] border-b border-r border-white/20 pointer-events-none"></div>
+              </div>
+            </div>
+
+            <!-- QF Left -->
+            <div class="flex flex-col gap-32 relative">
+              <div *ngFor="let match of qf.slice(0, 2); let i = index" class="w-32 lg:w-40 bg-frederico-dark/60 border border-white/30 hover:border-frederico-yellow/60 transition-all duration-500 shadow-lg relative group">
+                <div class="py-2">
+                  <app-team-row [team]="match.team1" [isWinner]="match.winner === 1" [isLoser]="match.winner === 2"></app-team-row>
+                  <app-team-row [team]="match.team2" [isWinner]="match.winner === 2" [isLoser]="match.winner === 1"></app-team-row>
+                </div>
+                <!-- Connector to SF -->
+                <div class="absolute -right-6 lg:-right-10 top-1/2 w-6 lg:w-10 border-t border-white/20 pointer-events-none" 
+                     [ngClass]="i === 0 ? 'h-[104px] border-r' : 'bottom-1/2 top-auto h-[104px] border-r border-t-0 border-b'"></div>
+              </div>
+            </div>
+
+            <!-- SF Left (1 Card) -->
+            <div class="flex flex-col relative">
+              <div class="w-36 lg:w-44 bg-frederico-dark/95 border-l-4 border-frederico-yellow border-white/40 p-3 shadow-[0_0_30px_rgba(255,214,10,0.15)] relative overflow-hidden group scale-105 z-20">
+                <div class="absolute inset-0 bg-gradient-to-r from-frederico-yellow/10 to-transparent pointer-events-none"></div>
+                <div class="text-[10px] font-anton text-frederico-yellow uppercase tracking-widest mb-1.5 relative z-10 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-frederico-yellow animate-pulse"></span>
+                  Semifinal 1
+                </div>
+                <app-team-row [team]="sf[0].team1" [isWinner]="sf[0].winner === 1" [isLoser]="sf[0].winner === 2"></app-team-row>
+                <app-team-row [team]="sf[0].team2" [isWinner]="sf[0].winner === 2" [isLoser]="sf[0].winner === 1"></app-team-row>
+                <!-- Connector to Final -->
+                <div class="absolute -right-6 lg:-right-12 top-1/2 w-6 lg:w-12 border-t-2 border-frederico-yellow/40 pointer-events-none"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTERPIECE (Grand Final) -->
+          <div class="w-full md:w-auto flex flex-col items-center justify-center order-1 md:order-2 py-12 md:py-0 px-4 lg:px-12">
+            <div class="relative z-30 scale-110 md:scale-[1.2] lg:scale-[1.4]">
+               <!-- Crown floating -->
+               <div class="flex justify-center mb-6 animate-float">
+                  <span class="material-symbols-outlined text-7xl text-frederico-yellow trophy-glow drop-shadow-[0_0_25px_rgba(255,214,10,0.7)]">
+                    crown
+                  </span>
+               </div>
+               
+               <div class="absolute -inset-20 bg-white/5 blur-[120px] rounded-full pointer-events-none opacity-50"></div>
+
+               <div class="relative w-64 bg-frederico-yellow p-[2px] shadow-2xl">
+                  <div class="bg-frederico-black border border-frederico-yellow">
+                    <div class="bg-frederico-yellow text-frederico-black text-center py-1">
+                      <span class="font-anton text-[9px] uppercase tracking-[0.5em] font-bold">The Grand Final</span>
+                    </div>
+                    <div class="py-4">
+                      <app-team-row [team]="final[0].team1" [isWinner]="false" [isLoser]="false"></app-team-row>
+                      <div class="flex items-center gap-3 px-3 my-2 text-frederico-yellow/50">
+                        <div class="flex-1 h-px bg-frederico-yellow/20"></div>
+                        <span class="font-anton text-xl italic">VS</span>
+                        <div class="flex-1 h-px bg-frederico-yellow/20"></div>
+                      </div>
+                      <app-team-row [team]="final[0].team2" [isWinner]="false" [isLoser]="false"></app-team-row>
+                    </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+
+          <!-- RIGHT WING (7 Cards) -->
+          <div class="flex items-center gap-6 lg:gap-10 w-full md:w-auto justify-center md:justify-start order-3">
+            <!-- SF Right (1 Card) -->
+            <div class="flex flex-col relative">
+              <div class="w-36 lg:w-44 bg-frederico-dark/95 border-r-4 border-frederico-yellow border-white/40 p-3 shadow-[0_0_30px_rgba(255,214,10,0.15)] relative overflow-hidden group scale-105 z-20 text-right">
+                <div class="absolute inset-0 bg-gradient-to-l from-frederico-yellow/10 to-transparent pointer-events-none"></div>
+                <div class="text-[10px] font-anton text-frederico-yellow uppercase tracking-widest mb-1.5 relative z-10 flex items-center justify-end gap-1">
+                  Semifinal 2
+                  <span class="w-1.5 h-1.5 rounded-full bg-frederico-yellow animate-pulse"></span>
+                </div>
+                <app-team-row [team]="sf[1].team1" [isWinner]="sf[1].winner === 1" [isLoser]="sf[1].winner === 2"></app-team-row>
+                <app-team-row [team]="sf[1].team2" [isWinner]="sf[1].winner === 2" [isLoser]="sf[1].winner === 1"></app-team-row>
+                <!-- Connector to Final -->
+                <div class="absolute -left-6 lg:-left-12 top-1/2 w-6 lg:w-12 border-t-2 border-frederico-yellow/40 pointer-events-none"></div>
+              </div>
+            </div>
+
+            <!-- QF Right -->
+            <div class="flex flex-col gap-32 relative">
+              <div *ngFor="let match of qf.slice(2, 4); let i = index" class="w-32 lg:w-40 bg-frederico-dark/60 border border-white/30 hover:border-frederico-yellow/60 transition-all duration-500 shadow-lg relative group">
+                <div class="py-2">
+                  <app-team-row [team]="match.team1" [isWinner]="match.winner === 1" [isLoser]="match.winner === 2"></app-team-row>
+                  <app-team-row [team]="match.team2" [isWinner]="match.winner === 2" [isLoser]="match.winner === 1"></app-team-row>
+                </div>
+                <!-- Connector to SF -->
+                <div class="absolute -left-6 lg:-left-10 top-1/2 w-6 lg:w-10 border-t border-white/20 pointer-events-none" 
+                     [ngClass]="i === 0 ? 'h-[104px] border-l' : 'bottom-1/2 top-auto h-[104px] border-l border-t-0 border-b'"></div>
+              </div>
+            </div>
+
+            <!-- R16 Right -->
+            <div class="flex flex-col gap-6 relative">
+              <div *ngFor="let match of r16.slice(4, 8); let i = index" class="w-32 lg:w-40 bg-frederico-dark/40 border border-white/20 hover:border-frederico-yellow/50 transition-all duration-500 shadow-md relative group">
+                <div class="py-1.5">
+                  <app-team-row [team]="match.team1" [isWinner]="match.winner === 1" [isLoser]="match.winner === 2"></app-team-row>
+                  <app-team-row [team]="match.team2" [isWinner]="match.winner === 2" [isLoser]="match.winner === 1"></app-team-row>
+                </div>
+                <!-- Connector to QF -->
+                <div *ngIf="i % 2 === 0" class="absolute -left-6 lg:-left-10 top-1/2 w-6 lg:w-10 h-[74px] border-t border-l border-white/20 pointer-events-none"></div>
+                <div *ngIf="i % 2 === 1" class="absolute -left-6 lg:-left-10 bottom-1/2 w-6 lg:w-10 h-[74px] border-b border-l border-white/20 pointer-events-none"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  
