@@ -1,0 +1,14 @@
+
+    <button
+      [ngClass]="[baseClasses, variantClasses]"
+      [class]="className"
+    >
+      <span class="block transform skew-x-[10deg]">
+        <ng-content></ng-content>
+      </span>
+      <div 
+        *ngIf="variant === 'primary'"
+        class="absolute inset-0 border border-frederico-yellow opacity-50 scale-110 group-hover:scale-125 transition-transform duration-300 pointer-events-none"
+      ></div>
+    </button>
+  
