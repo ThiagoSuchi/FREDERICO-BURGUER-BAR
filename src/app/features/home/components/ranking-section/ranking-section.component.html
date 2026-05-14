@@ -1,0 +1,95 @@
+
+    <section class="py-48 px-4 relative z-10 overflow-hidden min-h-[1000px]">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img src="assets/copa26.png" class="w-full h-full object-cover opacity-100 scale-105" alt="Background">
+        <div class="absolute inset-0 bg-gradient-to-t from-frederico-black via-frederico-black/80 to-frederico-black"></div>
+      </div>
+
+      <div class="relative z-10">
+        <app-section-heading title="Ranking Geral" subtitle="Os Mais Votados" />
+      </div>
+
+      <div class="max-w-5xl mx-auto mt-20">
+        <div class="flex items-end justify-center gap-4 md:gap-8 h-[500px]">
+          <ng-container *ngFor="let item of sortedRanking">
+            <div class="flex flex-col items-center w-full max-w-[280px]">
+              
+              <!-- Burger Image Square -->
+              <div class="relative mb-4 group ring-offset-4 ring-offset-frederico-black transition-all duration-500">
+                <div 
+                  class="w-32 h-32 md:w-44 md:h-44 overflow-hidden relative z-10 border-2 grayscale hover:grayscale-0 transition-all duration-700"
+                  [ngClass]="{
+                    'border-yellow-400': item.rank === 1,
+                    'border-white/40': item.rank === 2,
+                    'border-orange-800/60': item.rank === 3
+                  }"
+                >
+                  <img 
+                    [src]="item.image" 
+                    [alt]="item.name"
+                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  />
+                  <!-- Minimal Rank Badge -->
+                  <div class="absolute top-0 right-0 px-2 py-1 font-anton text-sm z-20"
+                    [ngClass]="{
+                      'bg-yellow-400 text-black': item.rank === 1,
+                      'bg-white text-black': item.rank === 2,
+                      'bg-orange-800 text-white': item.rank === 3
+                    }">
+                    0{{ item.rank }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Street Minimal Block -->
+              <div
+                class="w-full flex flex-col items-center pt-6 pb-8 transition-all duration-500"
+                [ngClass]="[item.height]"
+              >
+                <div class="relative mb-2 flex flex-col items-center gap-1">
+                  <ng-container [ngSwitch]="item.name">
+                    <img *ngSwitchCase="'Brasil'" src="assets/icons/brasil.png" alt="Brasil" class="w-8 h-8 object-contain mb-1" />
+                    <img *ngSwitchCase="'México'" src="assets/icons/mexico.png" alt="México" class="w-8 h-8 object-contain mb-1" />
+                    <img *ngSwitchCase="'EUA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-8 h-8 object-contain mb-1" />
+                    <img *ngSwitchCase="'Croácia'" src="assets/icons/croacia.png" alt="Croácia" class="w-8 h-8 object-contain mb-1" />
+                    <img *ngSwitchCase="'Portugal'" src="assets/icons/portugal.png" alt="Portugal" class="w-8 h-8 object-contain mb-1" />
+                    <img *ngSwitchCase="'Espanha'" src="assets/icons/espanha.png" alt="Espanha" class="w-8 h-8 object-contain mb-1" />
+                    <img *ngSwitchCase="'Itália'" src="assets/icons/italia.png" alt="Itália" class="w-8 h-8 object-contain mb-1" />
+                    <img *ngSwitchCase="'França'" src="assets/icons/franca.png" alt="França" class="w-8 h-8 object-contain mb-1" />
+                  </ng-container>
+                  <h3 class="font-anton text-2xl md:text-4xl text-white uppercase tracking-tighter text-center leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                    {{ item.name }}
+                  </h3>
+                  <!-- Subtle underline for emphasis -->
+                  <div class="h-0.5 w-1/2 mx-auto mt-1 opacity-50"
+                    [ngClass]="{
+                      'bg-yellow-400': item.rank === 1,
+                      'bg-white': item.rank === 2,
+                      'bg-orange-800': item.rank === 3
+                    }"></div>
+                </div>
+                
+                <div class="mt-3 flex flex-col items-center">
+                  <span class="font-inter text-[10px] md:text-sm font-black uppercase tracking-[0.4em] text-white brightness-125 mb-1 bg-black/40 px-3 py-0.5 rounded-sm backdrop-blur-sm border border-white/10">
+                    Signature Series
+                  </span>
+                  <span class="font-anton text-lg md:text-xl italic uppercase tracking-widest text-center drop-shadow-lg"
+                    [ngClass]="{
+                      'text-yellow-400': item.rank === 1,
+                      'text-white': item.rank === 2,
+                      'text-orange-800': item.rank === 3
+                    }">
+                    {{ item.burgerName }}
+                  </span>
+                </div>
+
+                <!-- Minimal Vertical Line Decoration -->
+                <div class="w-px h-16 mt-6 bg-gradient-to-b from-white/40 via-white/10 to-transparent"></div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </section>
+  
