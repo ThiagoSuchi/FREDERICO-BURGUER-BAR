@@ -1,0 +1,41 @@
+
+    <div
+      [class]="'flex items-center gap-2 px-2 py-1.5 transition-all ' + (isWinner ? 'bg-frederico-yellow/10' : '') + (isLoser ? ' opacity-40 grayscale' : '')"
+    >
+      <ng-container *ngIf="team; else emptyTeam">
+        <div
+          [class]="'relative w-7 h-7 rounded-full overflow-hidden flex-shrink-0 ' + (isWinner ? 'ring-2 ring-frederico-yellow' : 'ring-1 ring-frederico-gray')"
+        >
+          <img
+            [src]="team.img"
+            [alt]="team.name"
+            class="w-full h-full object-cover grayscale"
+          />
+        </div>
+        <ng-container [ngSwitch]="team.name">
+          <img *ngSwitchCase="'O Brabo'" src="assets/icons/brasil.png" alt="Brasil" class="w-4 h-4 object-contain" />
+          <img *ngSwitchCase="'El Pibe'" src="assets/icons/argentina.png" alt="Argentina" class="w-4 h-4 object-contain" />
+          <img *ngSwitchCase="'Azteca'" src="assets/icons/mexico.png" alt="México" class="w-4 h-4 object-contain" />
+          <img *ngSwitchCase="'Mr. USA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-4 h-4 object-contain" />
+          <img *ngSwitchCase="'Croata'" src="assets/icons/croacia.png" alt="Croácia" class="w-4 h-4 object-contain" />
+          <img *ngSwitchCase="'O Lusitano'" src="assets/icons/portugal.png" alt="Portugal" class="w-4 h-4 object-contain" />
+          <img *ngSwitchCase="'Toro'" src="assets/icons/espanha.png" alt="Espanha" class="w-4 h-4 object-contain" />
+          <img *ngSwitchCase="'Le Bleu'" src="assets/icons/franca.png" alt="França" class="w-4 h-4 object-contain" />
+          <img *ngSwitchCase="'La Mamma'" src="assets/icons/italia.png" alt="Itália" class="w-4 h-4 object-contain" />
+          <span *ngSwitchDefault class="text-base leading-none">{{ team.flag }}</span>
+        </ng-container>
+        <span
+          [class]="'font-anton text-xs uppercase tracking-wider truncate flex-1 ' + (isWinner ? 'text-frederico-yellow' : 'text-white/80')"
+        >
+          {{ team.name }}
+        </span>
+        <div *ngIf="isWinner" class="w-1 h-1 rounded-full bg-frederico-yellow animate-pulse"></div>
+      </ng-container>
+      <ng-template #emptyTeam>
+        <div class="w-7 h-7 rounded-full bg-frederico-black border border-dashed border-frederico-gray"></div>
+        <span class="font-anton text-xs uppercase tracking-wider text-frederico-gray">
+          A Definir
+        </span>
+      </ng-template>
+    </div>
+  
