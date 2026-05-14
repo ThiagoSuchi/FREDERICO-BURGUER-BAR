@@ -1,0 +1,14 @@
+
+    <div [class]="'flex flex-col items-center justify-center text-center mb-16 ' + className">
+      <span
+        *ngIf="subtitle"
+        class="font-inter font-bold text-frederico-yellow tracking-[0.2em] uppercase text-sm mb-4"
+      >
+        {{ subtitle }}
+      </span>
+      <h2 class="font-anton text-5xl md:text-7xl uppercase text-white text-distressed-white tracking-wide">
+        {{ title }}
+      </h2>
+      <div class="w-24 h-2 bg-frederico-yellow mt-6 -skew-x-12"></div>
+    </div>
+  
