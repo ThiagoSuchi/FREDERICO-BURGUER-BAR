@@ -17,15 +17,11 @@
         <div class="flex justify-between items-end mb-2">
           <div class="flex items-center gap-3">
             <ng-container [ngSwitch]="item.name">
-              <img *ngSwitchCase="'O Brabo'" src="assets/icons/brasil.png" alt="Brasil" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'El Pibe'" src="assets/icons/argentina.png" alt="Argentina" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'Azteca'" src="assets/icons/mexico.png" alt="México" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'Mr. USA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'Croata'" src="assets/icons/croacia.png" alt="Croácia" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'O Lusitano'" src="assets/icons/portugal.png" alt="Portugal" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'Toro'" src="assets/icons/espanha.png" alt="Espanha" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'Le Bleu'" src="assets/icons/franca.png" alt="França" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'La Mamma'" src="assets/icons/italia.png" alt="Itália" class="w-8 h-8 object-contain" />
+              <img *ngSwitchCase="'Brasil'" src="assets/icons/brasil.png" alt="Brasil" class="w-8 h-8 object-contain" />
+              <img *ngSwitchCase="'Argentina'" src="assets/icons/argentina.png" alt="Argentina" class="w-8 h-8 object-contain" />
+              <img *ngSwitchCase="'EUA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-8 h-8 object-contain" />
+              <img *ngSwitchCase="'França'" src="assets/icons/franca.png" alt="França" class="w-8 h-8 object-contain" />
+              <img *ngSwitchCase="'Japão'" src="assets/icons/japao.png" alt="Japão" class="w-8 h-8 object-contain" />
               <span *ngSwitchDefault class="text-3xl">{{ item.flag }}</span>
             </ng-container>
             <span class="font-anton text-2xl uppercase">
@@ -42,12 +38,12 @@
           </div>
         </div>
 
-        <!-- Progress Bar Background -->
+        <!-- Fundo da barra de progresso -->
         <div class="h-6 w-full bg-frederico-black rounded-full overflow-hidden -skew-x-12 border border-frederico-gray">
-          <!-- Progress Bar Fill -->
+          <!-- Preenchimento da barra de progresso -->
           <div [ngClass]="item.color" [style.width.%]="item.percentage"
             class="h-full relative transition-all duration-1500">
-            <!-- Shine effect -->
+            <!-- Efeito de brilho -->
             <div class="absolute top-0 left-0 right-0 h-1/2 bg-white/20"></div>
           </div>
         </div>
