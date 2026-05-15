@@ -20,14 +20,14 @@ interface Result {
 export class LiveResultsComponent {
   results: Result[] = [
     {
-      name: 'O Brabo',
+      name: 'Brasil',
       flag: '🇧🇷',
       votes: 15420,
       percentage: 65,
       color: 'bg-frederico-yellow',
     },
     {
-      name: 'El Pibe',
+      name: 'Argentina',
       flag: '🇦🇷',
       votes: 8304,
       percentage: 35,
