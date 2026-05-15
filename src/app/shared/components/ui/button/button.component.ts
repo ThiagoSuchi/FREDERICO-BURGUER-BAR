@@ -40,7 +40,7 @@ export class ButtonComponent implements OnInit {
     this.variantClasses = variants[this.variant] || variants.primary;
   }
 
-  // Ensure variations update if input changes
+  // Garante que as variacoes atualizem quando o input mudar
   ngOnChanges() {
     this.updateVariant();
   }
