@@ -28,9 +28,9 @@ export class RankingSectionComponent {
   ranking: RankingItem[] = [
     {
       rank: 2,
-      name: 'Itália',
-      burgerName: 'Mafia Cheese',
-      image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80',
+      name: 'França',
+      burgerName: 'Top 2',
+      image: 'assets/images/hambgurgers/França.jpg',
       color: 'border-gray-400',
       borderColor: 'border-gray-400',
       height: 'h-64',
@@ -39,8 +39,8 @@ export class RankingSectionComponent {
     {
       rank: 1,
       name: 'Brasil',
-      burgerName: 'Picanha Master',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80',
+      burgerName: 'Top 1',
+      image: 'assets/images/hambgurgers/Brasil.jpeg',
       color: 'border-frederico-yellow',
       borderColor: 'border-frederico-yellow',
       height: 'h-80',
@@ -48,9 +48,9 @@ export class RankingSectionComponent {
     },
     {
       rank: 3,
-      name: 'México',
-      burgerName: 'Spicy Azteca',
-      image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80',
+      name: 'Japão',
+      burgerName: 'Top 3',
+      image: 'assets/images/hambgurgers/Japao.jpeg',
       color: 'border-orange-600',
       borderColor: 'border-orange-600',
       height: 'h-48',
