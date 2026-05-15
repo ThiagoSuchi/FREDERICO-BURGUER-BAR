@@ -4,14 +4,14 @@
 
       <div class="max-w-5xl mx-auto grid gap-12">
         <div *ngFor="let match of matches; let idx = index" class="relative bg-frederico-dark border-2 border-frederico-gray p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 group hover:border-frederico-yellow transition-colors duration-300">
-          <!-- Status Badge -->
+          <!-- Selo de status -->
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-frederico-black border border-frederico-gray px-4 py-1 -skew-x-12">
             <span class="font-anton text-sm uppercase tracking-wider skew-x-12 block text-frederico-yellow">
               {{ match.status === 'live' ? 'Ao Vivo' : 'Em Breve' }}
             </span>
           </div>
 
-          <!-- Team 1 -->
+          <!-- Equipe 1 -->
           <div class="flex flex-col items-center w-full md:w-1/3">
             <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-transparent group-hover:border-frederico-yellow transition-all duration-300 mb-4 relative">
               <img
@@ -23,22 +23,18 @@
             </div>
             <div class="flex items-center gap-2">
               <ng-container [ngSwitch]="match.team1.name">
-                <img *ngSwitchCase="'O Brabo'" src="assets/icons/brasil.png" alt="Brasil" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'El Pibe'" src="assets/icons/argentina.png" alt="Argentina" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Azteca'" src="assets/icons/mexico.png" alt="México" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Mr. USA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Croata'" src="assets/icons/croacia.png" alt="Croácia" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'O Lusitano'" src="assets/icons/portugal.png" alt="Portugal" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Toro'" src="assets/icons/espanha.png" alt="Espanha" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'La Mamma'" src="assets/icons/italia.png" alt="Itália" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Le Bleu'" src="assets/icons/franca.png" alt="França" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'Brasil'" src="assets/icons/brasil.png" alt="Brasil" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'Argentina'" src="assets/icons/argentina.png" alt="Argentina" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'EUA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'França'" src="assets/icons/franca.png" alt="França" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'Japão'" src="assets/icons/japao.png" alt="Japão" class="w-6 h-6 object-contain" />
                 <span *ngSwitchDefault class="text-2xl">{{ match.team1.flag }}</span>
               </ng-container>
               <h3 class="font-anton text-2xl uppercase">{{ match.team1.name }}</h3>
             </div>
           </div>
 
-          <!-- VS & Action -->
+          <!-- VS e acao -->
           <div class="flex flex-col items-center justify-center w-full md:w-1/3 gap-6">
             <span class="font-anton text-4xl text-white/40 group-hover:text-frederico-yellow transition-all duration-300 italic tracking-tighter drop-shadow-sm">
               VS
@@ -53,7 +49,7 @@
             </div>
           </div>
 
-          <!-- Team 2 -->
+          <!-- Equipe 2 -->
           <div class="flex flex-col items-center w-full md:w-1/3">
             <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-transparent group-hover:border-frederico-yellow transition-all duration-300 mb-4 relative">
               <img
@@ -65,15 +61,11 @@
             <div class="flex items-center gap-2">
               <h3 class="font-anton text-2xl uppercase">{{ match.team2.name }}</h3>
               <ng-container [ngSwitch]="match.team2.name">
-                <img *ngSwitchCase="'O Brabo'" src="assets/icons/brasil.png" alt="Brasil" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'El Pibe'" src="assets/icons/argentina.png" alt="Argentina" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Azteca'" src="assets/icons/mexico.png" alt="México" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Mr. USA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Croata'" src="assets/icons/croacia.png" alt="Croácia" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'O Lusitano'" src="assets/icons/portugal.png" alt="Portugal" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Toro'" src="assets/icons/espanha.png" alt="Espanha" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'La Mamma'" src="assets/icons/italia.png" alt="Itália" class="w-6 h-6 object-contain" />
-                <img *ngSwitchCase="'Le Bleu'" src="assets/icons/franca.png" alt="França" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'Brasil'" src="assets/icons/brasil.png" alt="Brasil" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'Argentina'" src="assets/icons/argentina.png" alt="Argentina" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'EUA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'França'" src="assets/icons/franca.png" alt="França" class="w-6 h-6 object-contain" />
+                <img *ngSwitchCase="'Japão'" src="assets/icons/japao.png" alt="Japão" class="w-6 h-6 object-contain" />
                 <span *ngSwitchDefault class="text-2xl">{{ match.team2.flag }}</span>
               </ng-container>
             </div>
