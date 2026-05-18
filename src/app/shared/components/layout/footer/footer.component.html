@@ -1,30 +1,66 @@
+<footer class="bg-frederico-black pt-16 pb-8 relative z-10">
+  <!-- Borda superior gradiente sutil -->
+  <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-frederico-yellow via-frederico-red to-frederico-yellow opacity-80"></div>
 
-    <footer class="bg-[#0a0a0a] py-12 border-t border-white/15 relative z-10">
-      <div class="container mx-auto px-4 flex flex-col items-center text-center">
-        <h2 class="font-anton text-4xl text-white tracking-widest mb-4 text-distressed uppercase">
-          FREDERICO <span class="text-frederico-yellow">BURGER</span>
-        </h2>
-        <p class="text-gray-500 font-inter max-w-md mb-8">
-          A maior competição de hambúrgueres do mundo. Sabor, suor e glória.
-        </p>
-        <div class="flex items-center gap-6 text-gray-400 font-anton text-lg">
-          <a href="#" class="hover:text-frederico-yellow transition-colors">
-            INSTAGRAM
-          </a>
-          <a href="#" class="hover:text-frederico-yellow transition-colors">
-            TIKTOK
-          </a>
-          <a href="#" class="hover:text-frederico-yellow transition-colors">
-            CARDÁPIO
-          </a>
-        </div>
+  <div class="container mx-auto px-6 relative z-10">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 items-center mb-16 mt-4">
+      
+      <!-- Coluna 1: Logo e Descrição -->
+      <div class="flex flex-col items-center md:items-start">
+        <img src="assets/images/brand/Frederico_vertical.png" alt="Frederico Burger Bar" 
+             class="h-32 md:h-40 w-auto mb-6" />
         
-        <!-- Linha divisoria inferior -->
-        <div class="w-full max-w-2xl border-t border-white/15 mt-12 mb-8"></div>
+        <p class="text-white/60 font-inter text-sm text-center md:text-left max-w-sm">
+          A verdadeira arena do sabor. Onde os melhores blends entram em campo para a maior competição de hambúrgueres.
+        </p>
+      </div>
 
-        <div class="text-gray-600 font-inter text-sm">
-          © {{ currentYear }} Frederico Burger. Todos os direitos reservados.
+      <!-- Coluna 2: Elemento Criativo (Selo de Qualidade) -->
+      <div class="flex flex-col items-center justify-center">
+        <div class="relative w-36 h-36 flex items-center justify-center rounded-full border border-white/5 bg-[#161616] hover:border-frederico-yellow/30 transition-colors duration-500 shadow-lg">
+          <!-- Borda tracejada interna -->
+          <div class="absolute inset-2 border border-dashed border-white/10 rounded-full"></div>
+          <div class="text-center z-10">
+            <span class="block font-bungee text-3xl text-frederico-red leading-none drop-shadow-md">100%</span>
+            <span class="block font-anton text-sm tracking-widest text-frederico-yellow mt-1">ARTESANAL</span>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <!-- Coluna 3: Navegação Estilizada -->
+      <div class="flex flex-col items-center md:items-end gap-3 w-full">
+        <h3 class="font-anton text-lg text-white/50 tracking-wider mb-2 uppercase">Explore</h3>
+        
+        <a href="#" class="group flex justify-between items-center w-full sm:w-64 px-6 py-3 bg-[#181818] border-l-4 border-frederico-yellow hover:bg-[#222] transition-colors duration-300">
+          <span class="font-anton text-lg text-white group-hover:text-frederico-yellow uppercase transition-colors">Cardápio</span>
+          <span class="text-white/20 group-hover:text-frederico-yellow group-hover:translate-x-1 transition-all">→</span>
+        </a>
+
+        <a href="#" class="group flex justify-between items-center w-full sm:w-64 px-6 py-3 bg-[#181818] border-l-4 border-frederico-red hover:bg-[#222] transition-colors duration-300 mt-2">
+          <span class="font-anton text-lg text-white group-hover:text-frederico-red uppercase transition-colors">Instagram</span>
+          <span class="text-white/20 group-hover:text-frederico-red text-xl transition-colors">@</span>
+        </a>
+
+        <a href="#" class="group flex justify-between items-center w-full sm:w-64 px-6 py-3 bg-[#181818] border-l-4 border-white/30 hover:border-white hover:bg-[#222] transition-colors duration-300 mt-2">
+          <span class="font-anton text-lg text-white uppercase transition-colors">TikTok</span>
+          <span class="text-white/20 group-hover:text-white text-xl transition-colors">♪</span>
+        </a>
+      </div>
+      
+    </div>
+    
+    <!-- Linha divisória em degradê elegante -->
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
+
+    <!-- Copyright -->
+    <div class="flex flex-col md:flex-row items-center justify-between w-full text-white/40 font-inter text-xs md:text-sm">
+      <p class="mb-4 md:mb-0 text-center md:text-left">© {{ currentYear }} Frederico Burger. Todos os direitos reservados.</p>
+      <p class="flex items-center gap-2">
+        Feito com <span class="text-frederico-red text-lg">♥</span> e muita lenha na grelha
+      </p>
+    </div>
+    
+  </div>
+</footer>
   
