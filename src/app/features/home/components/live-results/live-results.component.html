@@ -1,52 +1,105 @@
-<section class="py-48 px-4 relative z-10">
-  <app-section-heading title="Resultados ao Vivo" subtitle="Acompanhe a Disputa" />
+<section class="py-32 px-4 relative z-10 overflow-hidden">
+  
+  <div class="relative max-w-5xl mx-auto rounded-3xl bg-frederico-dark/95 border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden">
+    <!-- Top Bar E-Sports Broadcast -->
+    <div class="bg-gradient-to-r from-frederico-black via-[#1a1a1a] to-frederico-black border-b border-white/5 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 relative">
+      <!-- Decorativo canto esquerdo -->
+      <div class="absolute left-0 top-0 h-full w-1 bg-frederico-red"></div>
 
-  <div class="max-w-4xl mx-auto bg-frederico-dark p-8 md:p-12 border-l-4 border-frederico-yellow hard-shadow">
-    <div class="flex justify-between items-end mb-8 border-b border-frederico-gray pb-4">
-      <h3 class="font-anton text-3xl uppercase">Duelo Principal</h3>
-      <div class="flex items-center gap-2 text-frederico-red animate-pulse">
-        <div class="w-3 h-3 rounded-full bg-frederico-red"></div>
-        <span class="font-inter font-bold text-sm uppercase tracking-wider">
-          Live
+      <div class="flex items-center gap-4">
+        <h2 class="font-anton text-2xl md:text-3xl uppercase tracking-widest text-white drop-shadow-md">
+          Resultados Oficiais
+        </h2>
+        <div class="h-6 w-px bg-white/20 hidden md:block"></div>
+        <span class="font-inter text-xs md:text-sm text-white/50 tracking-widest uppercase">
+          Fase de Grupos
+        </span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <!-- Contador global de Votos -->
+        <div class="flex flex-col items-end">
+          <span class="font-inter text-[10px] text-white/40 uppercase tracking-widest">Total Global</span>
+          <div class="font-anton text-xl md:text-2xl text-white">{{ totalVotes.toLocaleString() }}</div>
+        </div>
+
+        <!-- Botão Live Red -->
+        <div class="flex items-center gap-2 bg-frederico-red/10 border border-frederico-red/30 px-3 py-1.5 rounded-sm shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+          <div class="w-2.5 h-2.5 rounded-full bg-frederico-red animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
+          <span class="font-anton text-sm uppercase tracking-wider text-frederico-red">AO VIVO</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ticker Info Dinâmico Inferior (Trazido para perto do Header) -->
+    <div class="bg-frederico-yellow/5 border-b border-white/5 py-2 px-6 flex items-center overflow-hidden h-10">
+      <div class="flex items-center gap-3">
+        <span class="text-xs uppercase font-inter text-frederico-yellow font-bold tracking-widest">» UPDATE:</span>
+        <span class="text-sm font-anton tracking-wider text-white/80 animate-pulse transition-all">
+          {{ leaderText }}
         </span>
       </div>
     </div>
 
-    <div class="space-y-8">
-      <div *ngFor="let item of results" class="relative">
-        <div class="flex justify-between items-end mb-2">
-          <div class="flex items-center gap-3">
-            <ng-container [ngSwitch]="item.name">
-              <img *ngSwitchCase="'Brasil'" src="assets/icons/brasil.png" alt="Brasil" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'Argentina'" src="assets/icons/argentina.png" alt="Argentina" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'EUA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'França'" src="assets/icons/franca.png" alt="França" class="w-8 h-8 object-contain" />
-              <img *ngSwitchCase="'Japão'" src="assets/icons/japao.png" alt="Japão" class="w-8 h-8 object-contain" />
-              <span *ngSwitchDefault class="text-3xl">{{ item.flag }}</span>
-            </ng-container>
-            <span class="font-anton text-2xl uppercase">
-              {{ item.name }}
-            </span>
+    <div class="p-8 md:p-12 space-y-12">
+      <!-- Blocos das seleções -->
+      <div *ngFor="let item of results" class="relative group transition-opacity duration-500"
+           [ngClass]="item.name !== getLeader().name ? 'opacity-80' : 'opacity-100'">
+        
+        <div class="flex justify-between items-end mb-3">
+          <!-- Team Header -->
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 md:w-12 md:h-12 relative">
+              <ng-container [ngSwitch]="item.name">
+                <img *ngSwitchCase="'Brasil'" src="assets/icons/brasil.png" alt="Brasil" class="w-full h-full object-contain" />
+                <img *ngSwitchCase="'Argentina'" src="assets/icons/argentina.png" alt="Argentina" class="w-full h-full object-contain" />
+                <img *ngSwitchCase="'EUA'" src="assets/icons/estados-unidos.png" alt="EUA" class="w-full h-full object-contain" />
+                <img *ngSwitchCase="'França'" src="assets/icons/franca.png" alt="França" class="w-full h-full object-contain" />
+                <img *ngSwitchCase="'Japão'" src="assets/icons/japao.png" alt="Japão" class="w-full h-full object-contain" />
+                <span *ngSwitchDefault class="text-4xl">{{ item.flag }}</span>
+              </ng-container>
+              <!-- Glow no ícone do LÍDER -->
+              <div *ngIf="item.name === getLeader().name" class="absolute inset-0 bg-white/20 blur-md rounded-full -z-10"></div>
+            </div>
+            
+            <div>
+              <h3 class="font-anton text-2xl md:text-3xl uppercase tracking-tight text-white transition-colors"
+                  [ngClass]="{'text-frederico-yellow': item.name === getLeader().name}">
+                {{ item.name }}
+              </h3>
+              <span class="font-inter text-xs text-white/40 uppercase tracking-widest block -mt-1">
+                {{ item.votes.toLocaleString() }} votos
+              </span>
+            </div>
           </div>
-          <div class="text-right">
-            <span class="font-anton text-3xl text-frederico-yellow">
+
+          <!-- Team Score -->
+          <div class="text-right flex flex-col items-end">
+            <div class="font-anton text-4xl md:text-5xl tracking-tighter tabular-nums transition-colors duration-500"
+                 [ngClass]="item.name === getLeader().name ? 'text-frederico-yellow drop-shadow-[0_0_15px_rgba(255,214,10,0.5)]' : 'text-white/60'">
               {{ item.percentage }}%
-            </span>
-            <p class="font-inter text-sm text-gray-400">
-              {{ item.votes.toLocaleString() }} votos
-            </p>
+            </div>
           </div>
         </div>
 
-        <!-- Fundo da barra de progresso -->
-        <div class="h-6 w-full bg-frederico-black rounded-full overflow-hidden -skew-x-12 border border-frederico-gray">
-          <!-- Preenchimento da barra de progresso -->
+        <!-- Barra de Progresso Cinematográfica -->
+        <div class="relative h-6 md:h-8 w-full bg-[#111] rounded-sm overflow-hidden -skew-x-12 border border-white/5 shadow-inner">
+          <!-- Textura interna de malha -->
+          <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9Im5vbmUiLz48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9zdmc+')] opacity-50 z-10 pointer-events-none"></div>
+          
+          <!-- Preenchimento da barra -->
           <div [ngClass]="item.color" [style.width.%]="item.percentage"
-            class="h-full relative transition-all duration-1500">
-            <!-- Efeito de brilho -->
-            <div class="absolute top-0 left-0 right-0 h-1/2 bg-white/20"></div>
+               class="h-full relative transition-[width] duration-1000 ease-out z-0 flex items-center justify-end pr-2 overflow-hidden"
+               [ngStyle]="{'box-shadow': item.name === getLeader().name ? (item.color === 'bg-frederico-yellow' ? '0 0 20px rgba(255,214,10,0.8)' : '0 0 20px rgba(239,68,68,0.8)') : 'none'}">
+            
+            <!-- Efeito Glossy Superior -->
+            <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent"></div>
+            
+            <!-- Listras estilo Racing/Esports na barra -->
+            <div class="absolute inset-0 w-[200%] h-full bg-[linear-gradient(-45deg,rgba(0,0,0,0.15)_25%,transparent_25%,transparent_50%,rgba(0,0,0,0.15)_50%,rgba(0,0,0,0.15)_75%,transparent_75%,transparent)] bg-[length:40px_40px] opacity-30 animate-pulse"></div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
